@@ -17,7 +17,7 @@ class Navbar extends Component {
                         Project01: Counter App |
                         <a
                             className='ml-2 text-success'
-                            href="https://tinyurl.com/2amvhxpx"
+                            href="https://tinyurl.com/yjxye3wa"
                             target='_blank'
                         >
                             Code
