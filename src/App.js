@@ -1,8 +1,9 @@
+import MainCounterApp from "./components/counter/mainCounterApp";
 
 function App() {
   return (
       <>
-        Hello
+        <MainCounterApp/>
       </>
   );
 }
