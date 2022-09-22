@@ -13,9 +13,6 @@ class MainCounterApp extends Component {
         ]
     }
 
-    componentDidMount() {
-    }
-
     /*---------------------------------------------------------
     TODO(target): Add all values from counters(array of object)
     TODO-1: Convert an 'object of array' to a simple 'array'
