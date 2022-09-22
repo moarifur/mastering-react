@@ -13,6 +13,14 @@ class Navbar extends Component {
                             { totalCount }
                         </span>
                     </h1>
+                    <h1 className="navbar-brand d-flex justify-content-center">
+                        Project01: Counter App
+                    </h1>
+                    <h1 className="navbar-brand d-flex justify-content-center">
+                        <a href="https://tinyurl.com/4vhvyecs" target='_blank'>
+                            Project Diagram
+                        </a>
+                    </h1>
                 </div>
             </nav>
         );
