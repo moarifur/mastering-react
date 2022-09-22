@@ -20,13 +20,3 @@ const Counter = ({ counter, onIncrement, onDecrement, onDelete }) => {
 };
 
 export default Counter;
-
-//style={display}
-//className="badge badge-warning mr-4"
-
-//<div className="mt-3">
-//             <Display count={count}/>
-//             <Increment onIncrement={onIncrement}/>
-//             <Decrement count={count} onDecrement={onDecrement}/>
-//             <Delete/>
-//         </div>

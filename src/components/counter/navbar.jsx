@@ -25,11 +25,19 @@ class Navbar extends Component {
                     </h1>
                     <h1 className="navbar-brand d-flex justify-content-center">
                         <a
-                            className='text-muted'
+                            className='mr-2 text-muted'
                             href="https://tinyurl.com/4vhvyecs"
                             target='_blank'
                         >
-                            Project Diagram
+                            Diagram
+                        </a>
+                        |
+                        <a
+                            className='ml-2 text-muted'
+                            href="https://tinyurl.com/27hujh7y"
+                            target='_blank'
+                        >
+                            Workflow
                         </a>
                     </h1>
                 </div>
