@@ -14,7 +14,10 @@ class Navbar extends Component {
                         </span>
                     </h1>
                     <h1 className="navbar-brand d-flex justify-content-center">
-                        Project01: Counter App
+                        Project01: Counter App | 
+                        <a href="https://github.com/moarifur/mastering-react/tree/counter-app" target='_blank'>
+                            Code
+                        </a>    
                     </h1>
                     <h1 className="navbar-brand d-flex justify-content-center">
                         <a href="https://tinyurl.com/4vhvyecs" target='_blank'>
