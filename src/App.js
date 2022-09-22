@@ -1,9 +1,9 @@
-import MainCounterApp from "./components/counter/mainCounterApp";
+import MainVidlyApp from "./components/vidly/mainVidlyApp";
 
 function App() {
   return (
       <>
-        <MainCounterApp/>
+        <MainVidlyApp/>
       </>
   );
 }
