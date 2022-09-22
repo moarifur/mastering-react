@@ -1,2 +1,2 @@
-Link: https://632bfcb16e62204ae9b2616c--fabulous-sunburst-15301f.netlify.app/
+Link: https://fabulous-sunburst-15301f.netlify.app/
 Issue: https://stackoverflow.com/questions/64468843/netlify-deployment-failed-during-stage-building-site-build-script-returned-n
