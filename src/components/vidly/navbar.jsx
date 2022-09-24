@@ -6,7 +6,14 @@ class Navbar extends Component {
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <h1 className="navbar-brand">
-                        Project02: Vidly App |
+                        <a
+                            className='mr-2 text-info'
+                            href="https://rococo-profiterole-656cf8.netlify.app/"
+                            target='_blank'
+                        >
+                            Project02: Vidly App
+                        </a>
+                         ||
                         <a
                             className='ml-2 text-info'
                             href="https://tinyurl.com/32srke4c"
