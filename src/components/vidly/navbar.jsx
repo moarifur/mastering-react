@@ -9,7 +9,7 @@ class Navbar extends Component {
                         Project02: Vidly App |
                         <a
                             className='ml-2 text-info'
-                            href="#"
+                            href="https://tinyurl.com/32srke4c"
                             target='_blank'
                         >
                             Version: 01
@@ -19,7 +19,7 @@ class Navbar extends Component {
                     <h1 className="navbar-brand d-flex justify-content-center">
                         <a
                             className='mr-2 text-muted'
-                            href="#"
+                            href="https://tinyurl.com/7b8dt6s3"
                             target='_blank'
                         >
                             Diagram
@@ -27,7 +27,7 @@ class Navbar extends Component {
                         ||
                         <a
                             className='ml-2 mr-2 text-muted'
-                            href="#"
+                            href="https://tinyurl.com/3j2ay68c"
                             target='_blank'
                         >
                             Workflow
@@ -35,7 +35,7 @@ class Navbar extends Component {
                         ||
                         <a
                             className='ml-2 text-muted'
-                            href="#"
+                            href="https://tinyurl.com/jbu6nrk6"
                             target='_blank'
                         >
                             Code
