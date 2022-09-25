@@ -16,7 +16,7 @@ class MainVidlyApp extends Component {
     TODO-2: Update state for 'counters'
     --------------------------------------------------------------------*/
     handleDelete = id => {
-        const movies = this.state.movies.filter(movie => movie.id !== id); // TODO-1
+        const movies = this.state.movies.filter(movie => movie._id !== id); // TODO-1
         this.setState({ movies }); // TODO-2
     }
 

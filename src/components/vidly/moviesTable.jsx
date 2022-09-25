@@ -24,7 +24,7 @@ class MoviesTable extends Component {
                         <td>{movie.dailyRentalRate}</td>
                         <td>
                             <button
-                                onClick={() => onDelete(movie)}
+                                onClick={() => onDelete(movie._id)}
                                 className='btn btn-danger'
                             >Delete</button>
                         </td>
