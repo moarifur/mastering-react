@@ -8,7 +8,7 @@ class Navbar extends Component {
                     <h1 className="navbar-brand">
                         <a
                             className='mr-2 text-info'
-                            href="https://rococo-profiterole-656cf8.netlify.app/"
+                            href="#"
                             target='_blank'
                         >
                             Project02: Vidly App
@@ -19,7 +19,7 @@ class Navbar extends Component {
                             href="https://tinyurl.com/32srke4c"
                             target='_blank'
                         >
-                            Version: 01
+                            Version: 02
                         </a>
                     </h1>
 
@@ -42,7 +42,7 @@ class Navbar extends Component {
                         ||
                         <a
                             className='ml-2 text-muted'
-                            href="https://tinyurl.com/jbu6nrk6"
+                            href="#"
                             target='_blank'
                         >
                             Code

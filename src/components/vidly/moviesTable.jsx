@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
+import Like from "./common/like";
+import Delete from "./common/delete";
 
 class MoviesTable extends Component {
     render() {
-        const {movies, onDelete} = this.props
+        const {movies, onDelete, onLike} = this.props
         if(movies.length === 0) return null
         return (
-            <table className="table table-bordered table-hover">
+            <table className="table table-hover">
                 <thead className="table-info">
                 <tr>
                     <th scope="col">Title</th>
                     <th scope="col">Genre</th>
                     <th scope="col">Stock</th>
                     <th scope="col">Rate</th>
+                    <th scope="col"></th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
@@ -23,10 +26,13 @@ class MoviesTable extends Component {
                         <td>{movie.numberInStock}</td>
                         <td>{movie.dailyRentalRate}</td>
                         <td>
-                            <button
-                                onClick={() => onDelete(movie)}
-                                className='btn btn-danger'
-                            >Delete</button>
+                            <Like
+                                liked={movie.liked}
+                                onClick={() => onLike(movie)}
+                            />
+                        </td>
+                        <td>
+                            <Delete onClick={() => onDelete(movie._id)} />
                         </td>
                     </tr>
                 )}

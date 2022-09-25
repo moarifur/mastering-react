@@ -11,13 +11,29 @@ class MainVidlyApp extends Component {
 
     // Handler methods:
     /*-------------------------------------------------------------------
-    TODO(target): Delete a counter
-    TODO-1: Create a new 'counters' object of array with 'Array.filter()'
-    TODO-2: Update state for 'counters'
+    TODO(target): Delete a movie
+    TODO-1: Create a new 'movies' object of array with 'Array.filter()'
+    TODO-2: Update state for 'movies'
     --------------------------------------------------------------------*/
     handleDelete = id => {
-        const movies = this.state.movies.filter(movie => movie.id !== id); // TODO-1
+        const movies = this.state.movies.filter(movie => movie._id !== id); // TODO-1
         this.setState({ movies }); // TODO-2
+    }
+
+    /*-------------------------------------------------------------------
+    TODO(target): Like a movie
+    TODO-1: Clone 'movies' array of object.
+    TODO-2: Find the index of that object.
+    TODO-3: Clone a particular 'movie' object.
+    TODO-4: Toggle algorithm.
+    TODO-5: Update state for 'movies'.
+    --------------------------------------------------------------------*/
+    handleLike = movie => {
+        const movies = [...this.state.movies]; // TODO-1
+        const index = movies.indexOf(movie); // TODO-2
+        movies[index] = { ...movies[index] }; // TODO-3
+        movies[index].liked = !movies[index].liked; // TODO-4
+        this.setState({ movies }); // TODO-5
     }
 
     render() {
@@ -32,6 +48,7 @@ class MainVidlyApp extends Component {
                             <MoviesTable
                                 movies={movies}
                                 onDelete={this.handleDelete}
+                                onLike={this.handleLike}
                             />
                         </div>
                     </div>
