@@ -2,11 +2,17 @@ import React, {Component} from 'react';
 import Navbar from "./navbar";
 import MoviesTable from "./moviesTable";
 import DisplayMessage from "./displayMessage";
+import Pagination from "./common/pagination";
 import {movies} from "./services/fakeMovieService";
+import {paginate} from "./utils/paginate";
 
 class MainVidlyApp extends Component {
     state = {
-        movies: movies  // Link movie (data source)
+        // Link movie (data source)
+        movies: movies,
+        // Pagination
+        pageSize: 5,
+        currentPage: 1
     }
 
     // Handler methods:
@@ -36,19 +42,38 @@ class MainVidlyApp extends Component {
         this.setState({ movies }); // TODO-5
     }
 
+    /*-------------------------------------------------------------------
+    TODO(target): Change page number in pagination
+    TODO-1: Set current page to clicked page number
+    --------------------------------------------------------------------*/
+    handlePageChange = page => {
+        this.setState({ currentPage: page }) // TODO-1
+    }
+
+
     render() {
-        const {movies} = this.state
+        const {pageSize, currentPage} = this.state
+
+        // Call the paginate method from our paginate.js file
+        const movies = paginate(this.state.movies, currentPage, pageSize)
+
         return (
             <>
                 <Navbar/>
                 <div className='container mt-5'>
                     <div className="row">
                         <div className="col-7">
-                            <DisplayMessage movies={movies}/>
+                            <DisplayMessage movies={this.state.movies}/>
                             <MoviesTable
                                 movies={movies}
                                 onDelete={this.handleDelete}
                                 onLike={this.handleLike}
+                            />
+                            <Pagination
+                                itemsCount={this.state.movies.length}
+                                pageSize={pageSize}
+                                currentPage={currentPage}
+                                onPageChange={this.handlePageChange}
                             />
                         </div>
                     </div>

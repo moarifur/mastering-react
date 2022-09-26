@@ -2,12 +2,11 @@ import React from 'react';
 
 const Delete = ({ onClick }) => {
     return (
-        <button
+        <i
+            className="fa fa-trash"
+            style={{ cursor: 'pointer',color: 'Red'}}
             onClick={onClick}
-            className='btn btn-danger'
-        >
-            Delete
-        </button>
+        />
     );
 };
 

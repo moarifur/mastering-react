@@ -14,8 +14,7 @@ class MoviesTable extends Component {
                     <th scope="col">Genre</th>
                     <th scope="col">Stock</th>
                     <th scope="col">Rate</th>
-                    <th scope="col"></th>
-                    <th scope="col">Action</th>
+                    <th colSpan={2} className='text-center'>Action</th>
                 </tr>
                 </thead>
                 <tbody>

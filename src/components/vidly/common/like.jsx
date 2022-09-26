@@ -6,12 +6,17 @@ import React from 'react';
 const Like = ({ liked, onClick }) => {
 
     let classes = "fa fa-thumbs-up"
-    if (!liked) classes = 'fa-solid fa-thumbs-down'
+    let color = '#8bc24c'
+
+    if (!liked){
+        classes = 'fa-solid fa-thumbs-down'
+        color = '#525252'
+    }
 
     return (
         <i
             className={classes}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: 'pointer', color}}
             onClick={onClick}
         />
     );
