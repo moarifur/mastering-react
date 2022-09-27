@@ -4,7 +4,9 @@ import MoviesTable from "./moviesTable";
 import DisplayMessage from "./displayMessage";
 import Pagination from "./common/pagination";
 import {movies} from "./services/fakeMovieService";
+import {getGenres} from "./services/fakeGenreService";
 import {paginate} from "./utils/paginate";
+import ListGroup from "./common/listGroup";
 
 class MainVidlyApp extends Component {
     state = {
@@ -12,7 +14,9 @@ class MainVidlyApp extends Component {
         movies: movies,
         // Pagination
         pageSize: 5,
-        currentPage: 1
+        currentPage: 1,
+        // Filtration
+        genres: [{ _id: "0", name: "All Genres" }, ...getGenres()],
     }
 
     // Handler methods:
@@ -50,27 +54,48 @@ class MainVidlyApp extends Component {
         this.setState({ currentPage: page }) // TODO-1
     }
 
+    /*-------------------------------------------------------------------
+    TODO(target): Filter movies by selecting genres
+    TODO-1:
+    --------------------------------------------------------------------*/
+    handleGenreSelect = genre => {
+        this.setState({ selectedGenre: genre, currentPage: 1 });
+    }
+
 
     render() {
-        const {pageSize, currentPage} = this.state
+        // Destructuring data
+        const {movies: allMovies, pageSize, currentPage, selectedGenre} = this.state
 
-        // Call the paginate method from our paginate.js file
-        const movies = paginate(this.state.movies, currentPage, pageSize)
+        // Filtering data
+        const filtered = selectedGenre && selectedGenre._id !== "0"
+            ? allMovies.filter(m => m.genre._id === selectedGenre._id)
+            : allMovies;
+
+        // Paginate data
+        const movies = paginate(filtered, currentPage, pageSize)
 
         return (
             <>
                 <Navbar/>
-                <div className='container mt-5'>
+                <div className='container mt-5 col-lg-10'>
                     <div className="row">
-                        <div className="col-7">
-                            <DisplayMessage movies={this.state.movies}/>
+                        <div className="col-2 text-center">
+                            <ListGroup
+                                items={this.state.genres}
+                                selectedItem={selectedGenre}
+                                onItemSelect={this.handleGenreSelect}
+                            />
+                        </div>
+                        <div className="col-6">
+                            <DisplayMessage length={filtered.length}/>
                             <MoviesTable
                                 movies={movies}
                                 onDelete={this.handleDelete}
                                 onLike={this.handleLike}
                             />
                             <Pagination
-                                itemsCount={this.state.movies.length}
+                                itemsCount={filtered.length}
                                 pageSize={pageSize}
                                 currentPage={currentPage}
                                 onPageChange={this.handlePageChange}

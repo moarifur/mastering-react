@@ -1,8 +1,8 @@
 import React from 'react';
 
-const DisplayMessage = ({ movies }) => {
+const DisplayMessage = ({ length }) => {
 
-    if(movies.length === 0)
+    if(length === 0)
         return <h3>There is no movies in the database</h3>
 
     return (
@@ -10,7 +10,7 @@ const DisplayMessage = ({ movies }) => {
         <span className="navbar-brand mb-0 h1">
           <header className="text-center">
             <span className="fs-4">
-                {movies.length} movies in the database
+                {length} movies in the database
             </span>
           </header>
         </span>

@@ -13,7 +13,7 @@ class Navbar extends Component {
                             href="https://tinyurl.com/32srke4c"
                             target='_blank'
                         >
-                            Version: 03
+                            Version: 04
                         </a>
                     </h1>
 
