@@ -13,7 +13,7 @@ class Navbar extends Component {
                             href="https://tinyurl.com/32srke4c"
                             target='_blank'
                         >
-                            Version: 04
+                            Version: 05
                         </a>
                     </h1>
 
@@ -36,7 +36,7 @@ class Navbar extends Component {
                         ||
                         <a
                             className='ml-2 text-muted'
-                            href="https://tinyurl.com/49phmn4r"
+                            href="https://tinyurl.com/4uwjscm4"
                             target='_blank'
                         >
                             Code

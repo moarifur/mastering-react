@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import _ from "lodash";
+
 import Navbar from "./navbar";
 import MoviesTable from "./moviesTable";
 import DisplayMessage from "./displayMessage";
@@ -17,6 +19,8 @@ class MainVidlyApp extends Component {
         currentPage: 1,
         // Filtration
         genres: [{ _id: "0", name: "All Genres" }, ...getGenres()],
+        // Sorting
+        sortColumn: { path: "title", order: "asc" }
     }
 
     // Handler methods:
@@ -62,18 +66,28 @@ class MainVidlyApp extends Component {
         this.setState({ selectedGenre: genre, currentPage: 1 });
     }
 
+    /*-------------------------------------------------------------------
+    TODO(target): Filter movies by selecting genres
+    TODO-1:
+    --------------------------------------------------------------------*/
+    handleSort = sortColumn => {
+        this.setState({ sortColumn });
+    }
 
     render() {
         // Destructuring data
-        const {movies: allMovies, pageSize, currentPage, selectedGenre} = this.state
+        const {movies: allMovies, pageSize, currentPage, genres, selectedGenre, sortColumn} = this.state
 
         // Filtering data
         const filtered = selectedGenre && selectedGenre._id !== "0"
             ? allMovies.filter(m => m.genre._id === selectedGenre._id)
             : allMovies;
 
+        // Sorting data
+        const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order])
+
         // Paginate data
-        const movies = paginate(filtered, currentPage, pageSize)
+        const movies = paginate(sorted, currentPage, pageSize)
 
         return (
             <>
@@ -82,7 +96,7 @@ class MainVidlyApp extends Component {
                     <div className="row">
                         <div className="col-2 text-center">
                             <ListGroup
-                                items={this.state.genres}
+                                items={genres}
                                 selectedItem={selectedGenre}
                                 onItemSelect={this.handleGenreSelect}
                             />
@@ -91,8 +105,10 @@ class MainVidlyApp extends Component {
                             <DisplayMessage length={filtered.length}/>
                             <MoviesTable
                                 movies={movies}
+                                sortColumn={sortColumn}
                                 onDelete={this.handleDelete}
                                 onLike={this.handleLike}
+                                onSort={this.handleSort}
                             />
                             <Pagination
                                 itemsCount={filtered.length}

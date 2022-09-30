@@ -6,6 +6,7 @@ const ListGroup = ({items, selectedItem, onItemSelect, textProperty, valueProper
             {items.map((item) => (
                 <li
                     onClick={() => onItemSelect(item)}
+                    style={{ cursor: 'pointer'}}
                     key={item[valueProperty]}
                     className={
                         item === selectedItem ? 'list-group-item active' : 'list-group-item border'
