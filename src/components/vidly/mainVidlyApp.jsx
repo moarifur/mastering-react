@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import _ from "lodash";
 
-import Navbar from "./navbar";
 import MoviesTable from "./moviesTable";
 import DisplayMessage from "./displayMessage";
 import Pagination from "./common/pagination";
+import ListGroup from "./common/listGroup";
 import {movies} from "./services/fakeMovieService";
 import {getGenres} from "./services/fakeGenreService";
 import {paginate} from "./utils/paginate";
-import ListGroup from "./common/listGroup";
 
 class MainVidlyApp extends Component {
     state = {
@@ -90,36 +89,33 @@ class MainVidlyApp extends Component {
         const movies = paginate(sorted, currentPage, pageSize)
 
         return (
-            <>
-                <Navbar/>
-                <div className='container mt-5 col-lg-10'>
-                    <div className="row">
-                        <div className="col-2 text-center">
-                            <ListGroup
-                                items={genres}
-                                selectedItem={selectedGenre}
-                                onItemSelect={this.handleGenreSelect}
-                            />
-                        </div>
-                        <div className="col-6">
-                            <DisplayMessage length={filtered.length}/>
-                            <MoviesTable
-                                movies={movies}
-                                sortColumn={sortColumn}
-                                onDelete={this.handleDelete}
-                                onLike={this.handleLike}
-                                onSort={this.handleSort}
-                            />
-                            <Pagination
-                                itemsCount={filtered.length}
-                                pageSize={pageSize}
-                                currentPage={currentPage}
-                                onPageChange={this.handlePageChange}
-                            />
-                        </div>
+            <div className='container mt-5 col-lg-10'>
+                <div className="row">
+                    <div className="col-2 text-center">
+                        <ListGroup
+                            items={genres}
+                            selectedItem={selectedGenre}
+                            onItemSelect={this.handleGenreSelect}
+                        />
+                    </div>
+                    <div className="col-6">
+                        <DisplayMessage length={filtered.length}/>
+                        <MoviesTable
+                            movies={movies}
+                            sortColumn={sortColumn}
+                            onDelete={this.handleDelete}
+                            onLike={this.handleLike}
+                            onSort={this.handleSort}
+                        />
+                        <Pagination
+                            itemsCount={filtered.length}
+                            pageSize={pageSize}
+                            currentPage={currentPage}
+                            onPageChange={this.handlePageChange}
+                        />
                     </div>
                 </div>
-            </>
+            </div>
         );
     }
 }
