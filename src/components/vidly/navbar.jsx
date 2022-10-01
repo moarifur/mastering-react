@@ -6,17 +6,11 @@ class Navbar extends Component {
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <h1 className="navbar-brand">
-                        <a
-                            className='mr-2 text-info'
-                            href="#"
-                            target='_blank'
-                        >
-                            Project02: Vidly App
-                        </a>
+                        Project02: Vidly App
                          ||
                         <a
                             className='ml-2 text-info'
-                            href="https://tinyurl.com/32srke4c"
+                            href="https://tinyurl.com/5n682pp3"
                             target='_blank'
                         >
                             Version: 02
@@ -42,7 +36,7 @@ class Navbar extends Component {
                         ||
                         <a
                             className='ml-2 text-muted'
-                            href="#"
+                            href="https://tinyurl.com/mvp7bk56"
                             target='_blank'
                         >
                             Code
