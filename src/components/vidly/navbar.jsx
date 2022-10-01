@@ -16,7 +16,7 @@ class Navbar extends Component {
                          ||
                         <a
                             className='ml-2 text-info'
-                            href="https://tinyurl.com/32srke4c"
+                            href="https://tinyurl.com/23r5ran7"
                             target='_blank'
                         >
                             Version: 01
