@@ -5,7 +5,7 @@ import MainVidlyApp from "./components/vidly/mainVidlyApp";
 import Customers from "./components/vidly/customers";
 import Rentals from "./components/vidly/rentals";
 import NotFound from "./components/vidly/notFound";
-import EditMovie from "./components/editMovie";
+import EditMovie from "./components/vidly/editMovie";
 
 function App() {
   return (

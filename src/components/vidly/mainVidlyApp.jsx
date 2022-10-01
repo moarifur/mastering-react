@@ -8,6 +8,7 @@ import ListGroup from "./common/listGroup";
 import {movies} from "./services/fakeMovieService";
 import {getGenres} from "./services/fakeGenreService";
 import {paginate} from "./utils/paginate";
+import ProjectInfo from "./projectInfo";
 
 class MainVidlyApp extends Component {
     state = {
@@ -113,6 +114,9 @@ class MainVidlyApp extends Component {
                             currentPage={currentPage}
                             onPageChange={this.handlePageChange}
                         />
+                    </div>
+                    <div className="col-3 text-center">
+                        <ProjectInfo />
                     </div>
                 </div>
             </div>
