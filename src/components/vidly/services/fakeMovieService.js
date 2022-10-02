@@ -1,6 +1,6 @@
 // An imaginary database/ data source
 
-export const movies = [
+const movies = [
     {
         _id: "5b21ca3eeb7f6fbccd471815",
         title: "Terminator",
@@ -95,6 +95,6 @@ export const movies = [
     }
 ];
 
-// export async function getMovies() {
-//     return movies;
-// }
+export function getMovies() {
+    return movies;
+}

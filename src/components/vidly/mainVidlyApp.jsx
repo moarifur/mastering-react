@@ -5,7 +5,7 @@ import MoviesTable from "./moviesTable";
 import DisplayMessage from "./displayMessage";
 import Pagination from "./common/pagination";
 import ListGroup from "./common/listGroup";
-import {movies} from "./services/fakeMovieService";
+import {getMovies} from "./services/fakeMovieService";
 import {getGenres} from "./services/fakeGenreService";
 import {paginate} from "./utils/paginate";
 import ProjectInfo from "./projectInfo";
@@ -13,7 +13,7 @@ import ProjectInfo from "./projectInfo";
 class MainVidlyApp extends Component {
     state = {
         // Link movie (data source)
-        movies: movies,
+        movies: getMovies(),
         // Pagination
         pageSize: 5,
         currentPage: 1,
@@ -60,33 +60,35 @@ class MainVidlyApp extends Component {
 
     /*-------------------------------------------------------------------
     TODO(target): Filter movies by selecting genres
-    TODO-1:
+    TODO-1: Store selected genres to the states and current page to 1
     --------------------------------------------------------------------*/
     handleGenreSelect = genre => {
-        this.setState({ selectedGenre: genre, currentPage: 1 });
+        this.setState({ selectedGenre: genre, currentPage: 1 }); // TODO-1
     }
 
     /*-------------------------------------------------------------------
-    TODO(target): Filter movies by selecting genres
-    TODO-1:
+    TODO(target): Sorting movies by clicking column header
+    TODO-1: Update state for sortColumn (sortColumn object has 2 property
+     path and order)
+     e.g: sortColumn: { path: "title", order: "asc" }
     --------------------------------------------------------------------*/
     handleSort = sortColumn => {
         this.setState({ sortColumn });
     }
 
     render() {
-        // Destructuring data
+        // Destructuring data: https://tinyurl.com/2p8ckd2r
         const {movies: allMovies, pageSize, currentPage, genres, selectedGenre, sortColumn} = this.state
 
-        // Filtering data
+        // Filtering data: https://tinyurl.com/2p9cvcnc
         const filtered = selectedGenre && selectedGenre._id !== "0"
             ? allMovies.filter(m => m.genre._id === selectedGenre._id)
             : allMovies;
 
-        // Sorting data
+        // Sorting data: https://tinyurl.com/t9ee297w
         const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order])
 
-        // Paginate data
+        // Paginate data: docs inside
         const movies = paginate(sorted, currentPage, pageSize)
 
         return (
@@ -115,7 +117,7 @@ class MainVidlyApp extends Component {
                             onPageChange={this.handlePageChange}
                         />
                     </div>
-                    <div className="col-3 text-center">
+                    <div className="col-2 ml-5 text-center">
                         <ProjectInfo />
                     </div>
                 </div>
