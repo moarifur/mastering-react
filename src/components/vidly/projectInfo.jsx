@@ -14,10 +14,10 @@ const ProjectInfo = () => {
                 <td>
                     <a
                         className='text-info'
-                        href="https://tinyurl.com/32srke4c"
+                        href="https://tinyurl.com/yjtunnu4"
                         target='_blank'
                     >
-                        06
+                        07
                     </a>
                 </td>
             </tr>
@@ -38,7 +38,7 @@ const ProjectInfo = () => {
                 <td>
                     <a
                         className='text-info'
-                        href="https://tinyurl.com/46p6tard"
+                        href="https://tinyurl.com/5n79j3as"
                         target='_blank'
                     >
                         Link
